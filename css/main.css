@@ -12,7 +12,9 @@ body {
 .square {
   height: 50px;
   width: 50px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #box-2, #box-5, #box-8 {
