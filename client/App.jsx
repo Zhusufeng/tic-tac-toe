@@ -12,9 +12,14 @@ class App extends React.Component {
     userInput = parseInt(userInput);
     console.log(userInput);
 
+    // set isHuman to true
+
     if (this.isValidMove(userInput)) {
       console.log('Move is valid!');
+
+      this.addToBoard(userInput);
       // Call addToBoard(userInput)
+      // set isHuman to false
       // Call giveComputerTurn
       // Call checkForWinner
     }
@@ -30,7 +35,21 @@ class App extends React.Component {
 
   addToBoard(input) {
     // Update state 
+    let index = input - 1;
+    let copy = this.state.board.slice();
+
+    let marker;
+    this.state.isHuman ? marker = 'X' : marker = 'O';
+    copy[index] = marker;
+
+    this.setState({
+      board: copy
+    }, () => {
+      console.log(this.state);
+    });
+    
     // Update DOM/board with X or O
+    
   }
 
   giveComputerTurn() {
