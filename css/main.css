@@ -2,6 +2,12 @@ body {
   font-family: 'Helvetica', sans-serif;
 }
 
+#App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #board {
   display: flex;
   height: 152px;
