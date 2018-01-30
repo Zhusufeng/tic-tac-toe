@@ -7,19 +7,19 @@ class App extends React.Component {
   }
 
   handleInput(userInput) {
-    // TODO: Handle invalid input
     userInput = parseInt(userInput);
     console.log('human input is ', userInput);
 
     if (this.isValidMove(userInput)) {
       console.log('Move is valid!');
       this.addToBoard(userInput, true);
-    } 
-    // Create else when move is NOT valid for a human
+    } else {
+      alert('That is not valid input. Please enter a number 1-9 that has not been selected');
+    }
   }
 
   isValidMove(input) {
-    if (!this.state.board[input - 1]) {
+    if (this.state.board[input - 1] === null) {
       return true;
     }
     return false;
