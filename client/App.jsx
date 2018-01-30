@@ -3,7 +3,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       board: [null, null, null, null, null, null, null, null, null],
-      // isHuman: true,
     };
   }
 
@@ -58,8 +57,10 @@ class App extends React.Component {
     if(this.isValidMove(compInput) && !this.areAllSpacesTaken()) {
       this.addToBoard(compInput, false);
       return;
-    } else {
+    } else if (!this.areAllSpacesTaken()) {
       this.giveComputerTurn();
+    } else {
+      return;
     }
   }
 
@@ -70,10 +71,6 @@ class App extends React.Component {
   }
 
   checkForWinner() {
-    // Check state for any winning combos
-    // Update result
-    // If state has been updated 9x
-      // Update result as cat's game (tie)
     const wins = [
       [0, 1, 2], //horizontals
       [3, 4, 5],
@@ -88,7 +85,6 @@ class App extends React.Component {
     let winner;
 
     for (let i = 0; i < wins.length; i++) {
-      console.log(wins[i][0], wins[i][1], wins[i][2]);
       if (board[wins[i][0]] !== null && board[wins[i][0]] === board[wins[i][1]] && board[wins[i][0]] === board[wins[i][2]]) {
         console.log('Winner is ', board[wins[i][0]]);
         winner = board[wins[i][0]];
@@ -108,7 +104,8 @@ class App extends React.Component {
     });
 
     if (areAllSpacesTaken.length === 9) {
-      this.updateResult();
+      // this.updateResult();
+      this.checkForWinner();
       return true;
     }
     return false;
