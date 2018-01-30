@@ -4,6 +4,8 @@
   "description": "A game of Tic Tac Toe",
   "main": "index.js",
   "scripts": {
+    "build": "babel . --watch --outdir compiled --presets=es2015,react --ignore=node_modules,compiled --source-maps inline",
+    "start": "live-server --open=./index.html --port=8888",
     "test": "test"
   },
   "author": "Lisa Gee",
