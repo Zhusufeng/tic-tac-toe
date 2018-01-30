@@ -54,7 +54,8 @@ class App extends React.Component {
   giveComputerTurn() {
     const compInput = this.selectNum();
     console.log('computer Input is ', compInput);
-    if(this.isValidMove(compInput)) {
+
+    if(this.isValidMove(compInput) && !this.areAllSpacesTaken()) {
       this.addToBoard(compInput, false);
       return;
     } else {
@@ -96,13 +97,21 @@ class App extends React.Component {
       }
     }
 
-    let areAllSelected = board.filter(el => {
+    this.areAllSpacesTaken();
+  }
+
+  areAllSpacesTaken() {
+    const board = this.state.board;
+
+    let areAllSpacesTaken = board.filter(el => {
       if (el !== null) return el;
     });
 
-    if (areAllSelected.length === 9) {
+    if (areAllSpacesTaken.length === 9) {
       this.updateResult();
+      return true;
     }
+    return false;
   }
 
   updateResult(winner) {
