@@ -16,8 +16,6 @@ class App extends React.Component {
       console.log('Move is valid!');
 
       this.addToBoard(userInput, true);
-      this.giveComputerTurn();
-      this.checkForWinner();
     } 
     // Create else when move is NOT valid for a human
   }
@@ -30,7 +28,6 @@ class App extends React.Component {
   }
 
   addToBoard(input, isHuman) {
-    // Update state 
     let index = input - 1;
     let copy = this.state.board.slice();
 
@@ -42,11 +39,16 @@ class App extends React.Component {
       board: copy
     }, () => {
       console.log(this.state);
+
+      const squares = document.querySelectorAll('.square');
+      squares[index].innerHTML = marker;
+
+      if (isHuman) {
+        this.giveComputerTurn();
+      } else {
+        this.checkForWinner();
+      }
     });
-    
-    // Update DOM/board with X or O
-    const squares = document.querySelectorAll('.square');
-    squares[index].innerHTML = marker;
   }
 
   giveComputerTurn() {
