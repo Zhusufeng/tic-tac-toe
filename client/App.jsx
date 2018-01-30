@@ -11,10 +11,16 @@ class App extends React.Component {
     userInput = parseInt(userInput);
     console.log(userInput);
 
-    // Call checkIfValidMove(userInput)
+    // Call isValidMove(userInput)
     // Call addToBoard(userInput)
     // Call giveComputerTurn
     // Call checkForWinner
+  }
+
+  isValidMove(userInput) {
+    // Check state if square is free
+      // Return true
+    // Return false
   }
 
   render() {
