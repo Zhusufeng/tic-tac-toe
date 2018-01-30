@@ -112,6 +112,7 @@ class App extends React.Component {
     }
     document.getElementById('user-input').setAttribute('disabled', 'disabled');
   }
+  
   // Create reset game button to clear board and reset state?
 
   render() {
