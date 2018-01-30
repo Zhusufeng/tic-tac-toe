@@ -12,13 +12,10 @@ class App extends React.Component {
     userInput = parseInt(userInput);
     console.log(userInput);
 
-    let isHuman = true;
-    // set isHuman to true
-
     if (this.isValidMove(userInput)) {
       console.log('Move is valid!');
 
-      this.addToBoard(userInput, isHuman);
+      this.addToBoard(userInput, true);
       this.giveComputerTurn();
       // Call checkForWinner
       
@@ -55,11 +52,10 @@ class App extends React.Component {
   }
 
   giveComputerTurn() {
-    let isHuman = false;
     const compInput = this.selectNum();
     console.log('computer Input is ', compInput);
     if(this.isValidMove(compInput)) {
-      this.addToBoard(compInput, isHuman);
+      this.addToBoard(compInput, false);
       return;
     } else {
       this.giveComputerTurn();
