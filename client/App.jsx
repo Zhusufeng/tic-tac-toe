@@ -8,10 +8,8 @@ class App extends React.Component {
 
   handleInput(userInput) {
     userInput = parseInt(userInput);
-    console.log('human input is ', userInput);
 
     if (this.isValidMove(userInput)) {
-      console.log('Move is valid!');
       this.addToBoard(userInput, true);
     } else {
       alert('That is not valid input. Please enter a number 1-9 that has not been selected');
@@ -36,25 +34,20 @@ class App extends React.Component {
     this.setState({
       board: copy
     }, () => {
-      console.log(this.state.board);
-
       const squares = document.querySelectorAll('.square');
       squares[index].innerHTML = marker;
 
       if (isHuman) {
         if (!this.areAllSpacesTaken()) {
-          console.log('All spaces are not taken');
           this.giveComputerTurn();
         }
       } 
-      console.log('I will check for winner');
       this.checkForWinner();
     });
   }
 
   giveComputerTurn() {
     const compInput = this.selectNum();
-    console.log('computer Input is ', compInput);
 
     if(this.isValidMove(compInput)) {
       this.addToBoard(compInput, false);
@@ -86,7 +79,6 @@ class App extends React.Component {
 
     for (let i = 0; i < wins.length; i++) {
       if (board[wins[i][0]] !== null && board[wins[i][0]] === board[wins[i][1]] && board[wins[i][0]] === board[wins[i][2]]) {
-        console.log('Winner is ', board[wins[i][0]]);
         winner = board[wins[i][0]];
         this.updateResult(winner);
         break;
