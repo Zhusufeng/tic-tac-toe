@@ -4,12 +4,23 @@ body {
 
 #board {
   display: flex;
-  height: 150px;
-  width: 150px;
+  height: 152px;
+  width: 152px;
   flex-wrap: wrap;
 }
 
 .square {
   height: 50px;
   width: 50px;
+  text-align: center;
+}
+
+#box-2, #box-5, #box-8 {
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+#box-4, #box-5, #box-6 {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
 }
