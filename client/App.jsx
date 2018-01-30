@@ -45,14 +45,9 @@ class App extends React.Component {
         if (!this.areAllSpacesTaken()) {
           console.log('All spaces are not taken');
           this.giveComputerTurn();
-        } else {
-          console.log('I will check for winner');
-          this.checkForWinner();
-        }
-      } else {
-        console.log('I will check for winner');
-        this.checkForWinner();
-      }
+        } 
+      console.log('I will check for winner');
+      this.checkForWinner();
     });
   }
 
@@ -130,11 +125,13 @@ class App extends React.Component {
       <div>
         <h1 id="title">Tic Tac Toe</h1>
         <div id="description">
-          <p>Description of game here.
+          <p>
+            This is a 1 player game versus the computer.
           </p>
         </div>
         <div id="instructions">
-          <p>Instructions here.
+          <p>
+            Instructions: You will make a move first. Enter a number 1-9 where the first row is 1-3, second row is 4-6, and the third is 7-9.
           </p>
         </div>
         <Form handleInput={this.handleInput.bind(this)}/>
