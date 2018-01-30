@@ -84,15 +84,25 @@ class App extends React.Component {
       [2, 4, 6]
     ];
     const board = this.state.board;
-    console.log(board);
+    let winner;
+
     for (let i = 0; i < wins.length; i++) {
       console.log(wins[i][0], wins[i][1], wins[i][2]);
       if (board[wins[i][0]] !== null && board[wins[i][0]] === board[wins[i][1]] && board[wins[i][0]] === board[wins[i][2]]) {
-        console.log('Winner');
+        console.log('Winner is ', board[wins[i][0]]);
+        winner = board[wins[i][0]];
+        this.updateResult(winner);
+        break;
       }
     }
   }
 
+  updateResult(winner) {
+    const resultArea = document.getElementById('result-area');
+    if (winner) {
+      resultArea.value = `Winner is ${winner}`;
+    }
+  }
   // Create reset game button to clear board and reset state?
 
   render() {
