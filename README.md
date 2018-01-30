@@ -28,6 +28,23 @@ npm install
 ```
 
 ## Dependencies
+1. react
+2. react-dom
+3. babel-cli
+4. babel-preset-es2015
+5. babel-preset-react
 
+## Running the Scripts
+You will first need to compile the code
+```javascript
+npm run build
+```
+
+Then you can start running the game with:
+```javascript
+npm start
+```
+
+Go to http://127.0.0.1:8888/ to start using the game
 
 ## How to Play
