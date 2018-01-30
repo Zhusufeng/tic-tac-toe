@@ -6,8 +6,10 @@ class Form extends React.Component {
           id="user-form" 
           onSubmit={e => {
             e.preventDefault();
-            let userInput = document.getElementById('user-input').value;
+            const userForm = document.getElementById('user-form');
+            const userInput = document.getElementById('user-input').value;
             this.props.handleInput(userInput);
+            userForm.reset();
           }}
         >
           <input type="text" id="user-input" placeholder="Text here" />
