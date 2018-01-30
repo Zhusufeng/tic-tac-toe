@@ -22,12 +22,13 @@ class App extends React.Component {
       // set isHuman to false
       // Call giveComputerTurn
       // Call checkForWinner
-    }
+    } 
+    // Create else when move is NOT valid for a human
     
   }
 
   isValidMove(input) {
-    if (!this.state.board[input]) {
+    if (!this.state.board[input - 1]) {
       return true;
     }
     return false;
@@ -49,7 +50,8 @@ class App extends React.Component {
     });
     
     // Update DOM/board with X or O
-    
+    const squares = document.querySelectorAll('.square');
+    squares[index].innerHTML = marker;
   }
 
   giveComputerTurn() {
