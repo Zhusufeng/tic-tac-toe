@@ -71,7 +71,7 @@ class App extends React.Component {
     // Update result
     // If state has been updated 9x
       // Update result as cat's game (tie)
-    const winningCombos = [
+    const wins = [
       [0, 1, 2], //horizontals
       [3, 4, 5],
       [6, 7, 8],
@@ -82,11 +82,13 @@ class App extends React.Component {
       [2, 4, 6]
     ];
     const board = this.state.board;
-    for (let i = 0; i < winningCombos.length; i++) {
-      console.log(winningCombos[i][0]);
-      
+    console.log(board);
+    for (let i = 0; i < wins.length; i++) {
+      console.log(wins[i][0], wins[i][1], wins[i][2]);
+      if (board[wins[i][0]] !== null && board[wins[i][0]] === board[wins[i][1]] && board[wins[i][0]] === board[wins[i][2]]) {
+        console.log('Winner');
+      }
     }
-    
   }
 
   // Create reset game button to clear board and reset state?
