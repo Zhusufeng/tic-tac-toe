@@ -17,10 +17,35 @@ class App extends React.Component {
     // Call checkForWinner
   }
 
-  isValidMove(userInput) {
+  isValidMove(input) {
     // Check state if square is free
       // Return true
     // Return false
+  }
+
+  addToBoard(input) {
+    // Update state 
+    // Update DOM/board with X or O
+  }
+
+  giveComputerTurn() {
+    // compInput = selectNum()
+    // if(isValidMove(compInput))
+      // Call addToBoard(compInput)
+      // Return
+    // else
+      // Call giveComputerTurn again
+  }
+
+  selectNum() {
+    // Return a random number from 1-9
+  }
+
+  checkForWinner() {
+    // Check state for any winning combos
+    // Update result
+    // If state has been updated 9x
+      // Update result as cat's game (tie)
   }
 
   render() {
