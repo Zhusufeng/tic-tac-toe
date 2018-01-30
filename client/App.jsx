@@ -18,6 +18,8 @@ class App extends React.Component {
           <p>Instructions here.
           </p>
         </div>
+        <Form />
+        <Board />
       </div>
     );
   }
