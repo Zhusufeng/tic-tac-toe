@@ -13,7 +13,6 @@ class App extends React.Component {
 
     if (this.isValidMove(userInput)) {
       console.log('Move is valid!');
-
       this.addToBoard(userInput, true);
     } 
     // Create else when move is NOT valid for a human
@@ -37,14 +36,21 @@ class App extends React.Component {
     this.setState({
       board: copy
     }, () => {
-      console.log(this.state);
+      console.log(this.state.board);
 
       const squares = document.querySelectorAll('.square');
       squares[index].innerHTML = marker;
 
       if (isHuman) {
-        this.giveComputerTurn();
+        if (!this.areAllSpacesTaken()) {
+          console.log('All spaces are not taken');
+          this.giveComputerTurn();
+        } else {
+          console.log('I will check for winner');
+          this.checkForWinner();
+        }
       } else {
+        console.log('I will check for winner');
         this.checkForWinner();
       }
     });
@@ -54,13 +60,11 @@ class App extends React.Component {
     const compInput = this.selectNum();
     console.log('computer Input is ', compInput);
 
-    if(this.isValidMove(compInput) && !this.areAllSpacesTaken()) {
+    if(this.isValidMove(compInput)) {
       this.addToBoard(compInput, false);
       return;
-    } else if (!this.areAllSpacesTaken()) {
-      this.giveComputerTurn();
     } else {
-      return;
+      this.giveComputerTurn();
     }
   }
 
@@ -82,7 +86,7 @@ class App extends React.Component {
       [2, 4, 6]
     ];
     const board = this.state.board;
-    let winner;
+    let winner = null;
 
     for (let i = 0; i < wins.length; i++) {
       if (board[wins[i][0]] !== null && board[wins[i][0]] === board[wins[i][1]] && board[wins[i][0]] === board[wins[i][2]]) {
@@ -93,7 +97,9 @@ class App extends React.Component {
       }
     }
 
-    this.areAllSpacesTaken();
+    if (this.areAllSpacesTaken()) {
+      this.updateResult(winner);
+    }
   }
 
   areAllSpacesTaken() {
@@ -104,8 +110,6 @@ class App extends React.Component {
     });
 
     if (areAllSpacesTaken.length === 9) {
-      // this.updateResult();
-      this.checkForWinner();
       return true;
     }
     return false;
