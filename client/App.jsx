@@ -2,7 +2,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      board: [null, null, null, null, null, null, null, null, null],
+      isHuman: true,
     };
   }
 
@@ -11,16 +12,20 @@ class App extends React.Component {
     userInput = parseInt(userInput);
     console.log(userInput);
 
-    // Call isValidMove(userInput)
-    // Call addToBoard(userInput)
-    // Call giveComputerTurn
-    // Call checkForWinner
+    if (this.isValidMove(userInput)) {
+      console.log('Move is valid!');
+      // Call addToBoard(userInput)
+      // Call giveComputerTurn
+      // Call checkForWinner
+    }
+    
   }
 
   isValidMove(input) {
-    // Check state if square is free
-      // Return true
-    // Return false
+    if (!this.state.board[input]) {
+      return true;
+    }
+    return false;
   }
 
   addToBoard(input) {
