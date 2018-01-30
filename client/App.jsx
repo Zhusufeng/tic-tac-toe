@@ -95,12 +95,22 @@ class App extends React.Component {
         break;
       }
     }
+
+    let areAllSelected = board.map(el =>. {
+      if (el) return el;
+    });
+
+    if (areAllSelected.length === 9) {
+      this.updateResult();
+    }
   }
 
   updateResult(winner) {
     const resultArea = document.getElementById('result-area');
     if (winner) {
       resultArea.value = `Winner is ${winner}`;
+    } else {
+      resultArea.value = `There is a tie!`;
     }
   }
   // Create reset game button to clear board and reset state?
