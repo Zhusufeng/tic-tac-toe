@@ -3,7 +3,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       board: [null, null, null, null, null, null, null, null, null],
-      isHuman: true,
+      // isHuman: true,
     };
   }
 
@@ -12,23 +12,19 @@ class App extends React.Component {
     userInput = parseInt(userInput);
     console.log(userInput);
 
+    let isHuman = true;
     // set isHuman to true
 
     if (this.isValidMove(userInput)) {
       console.log('Move is valid!');
 
-      this.addToBoard(userInput);
+      this.addToBoard(userInput, isHuman);
+      this.giveComputerTurn();
+      // Call checkForWinner
+      
 
-      this.setState({
-        isHuman: false
-      }, () => {
-        console.log(this.state);
-        this.giveComputerTurn();
-        // Call checkForWinner
-      });
     } 
     // Create else when move is NOT valid for a human
-    
   }
 
   isValidMove(input) {
@@ -38,13 +34,13 @@ class App extends React.Component {
     return false;
   }
 
-  addToBoard(input) {
+  addToBoard(input, isHuman) {
     // Update state 
     let index = input - 1;
     let copy = this.state.board.slice();
 
     let marker;
-    this.state.isHuman ? marker = 'X' : marker = 'O';
+    isHuman ? marker = 'X' : marker = 'O';
     copy[index] = marker;
 
     this.setState({
@@ -59,10 +55,11 @@ class App extends React.Component {
   }
 
   giveComputerTurn() {
+    let isHuman = false;
     const compInput = this.selectNum();
     console.log('computer Input is ', compInput);
     if(this.isValidMove(compInput)) {
-      this.addToBoard(compInput);
+      this.addToBoard(compInput, isHuman);
       return;
     } else {
       this.giveComputerTurn();
