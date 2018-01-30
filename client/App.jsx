@@ -6,6 +6,10 @@ class App extends React.Component {
     };
   }
 
+  handleInput(thing) {
+    console.log(thing);
+  }
+
   render() {
     return (
       <div>
@@ -18,7 +22,7 @@ class App extends React.Component {
           <p>Instructions here.
           </p>
         </div>
-        <Form />
+        <Form handleInput={this.handleInput.bind(this)}/>
         <Board />
         <Result />
       </div>
