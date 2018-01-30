@@ -45,7 +45,8 @@ class App extends React.Component {
         if (!this.areAllSpacesTaken()) {
           console.log('All spaces are not taken');
           this.giveComputerTurn();
-        } 
+        }
+      } 
       console.log('I will check for winner');
       this.checkForWinner();
     });
@@ -134,9 +135,14 @@ class App extends React.Component {
             Instructions: You will make a move first. Enter a number 1-9 where the first row is 1-3, second row is 4-6, and the third is 7-9.
           </p>
         </div>
-        <Form handleInput={this.handleInput.bind(this)}/>
-        <Board />
-        <Result />
+        <div id="components">
+          <p></p>
+          <Form handleInput={this.handleInput.bind(this)}/>
+          <p></p>
+          <Board />
+          <p></p>
+          <Result />
+        </div>
       </div>
     );
   }
