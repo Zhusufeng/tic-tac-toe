@@ -110,6 +110,7 @@ class App extends React.Component {
     } else {
       resultArea.value = `There is a tie!`;
     }
+    document.getElementById('user-input').setAttribute('disabled', 'disabled');
   }
   // Create reset game button to clear board and reset state?
 
