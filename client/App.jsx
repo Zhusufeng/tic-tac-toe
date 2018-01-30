@@ -10,7 +10,7 @@ class App extends React.Component {
   handleInput(userInput) {
     // TODO: Handle invalid input
     userInput = parseInt(userInput);
-    console.log(userInput);
+    console.log('human input is ', userInput);
 
     if (this.isValidMove(userInput)) {
       console.log('Move is valid!');
@@ -96,8 +96,8 @@ class App extends React.Component {
       }
     }
 
-    let areAllSelected = board.map(el =>. {
-      if (el) return el;
+    let areAllSelected = board.filter(el => {
+      if (el !== null) return el;
     });
 
     if (areAllSelected.length === 9) {
