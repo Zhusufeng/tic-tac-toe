@@ -8,6 +8,10 @@ body {
   align-items: center;
 }
 
+p {
+  width: 300px;
+}
+
 #board {
   display: flex;
   height: 152px;
