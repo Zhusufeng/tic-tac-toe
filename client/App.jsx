@@ -48,6 +48,8 @@ class App extends React.Component {
       // Update result as cat's game (tie)
   }
 
+  // Create reset game button to clear board and reset state?
+
   render() {
     return (
       <div>
