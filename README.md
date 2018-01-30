@@ -1,20 +1,19 @@
 # Tic-Tac-Toe
 
-## Installation
-Option 1 
-Download the repo and unzip it to your chosen file path
+## How to Install
+1. Option 1: Download the repo and unzip it to your chosen file path
 
-Option 2
-Go to your chosen file path and use the command below
+2. Option 2: Go to your chosen file path and use the command below
 ```javascript
-git clone {repohere}
+git clone https://github.com/Zhusufeng/tic-tac-toe.git
 ```
 
-Then in your terminal 
+Then in your terminal
 ```javascript
-cd {reponamehere}
+cd tic-tac-toe
 ```
 
+## How to Download the Dependencies
 To run the app, you will need live-server
 If you do not have live-server, you will need to download it
 
@@ -34,17 +33,20 @@ npm install
 4. babel-preset-es2015
 5. babel-preset-react
 
-## Running the Scripts
-You will first need to compile the code
+## Running the App
+You can run the app by using the below scripts.
+
+1. You will first need to compile the code
 ```javascript
 npm run build
 ```
 
-Then you can start running the game with:
+2. Then you can start running the game with:
 ```javascript
 npm start
 ```
 
-Go to http://127.0.0.1:8888/ to start using the game
+3. Go to http://127.0.0.1:8888/ to start using the game
 
 ## How to Play
+You will make a move first. Enter a number 1-9 where the first row is 1-3, second row is 4-6, and the third is 7-9.
