@@ -17,9 +17,7 @@ class App extends React.Component {
 
       this.addToBoard(userInput, true);
       this.giveComputerTurn();
-      // Call checkForWinner
-      
-
+      this.checkForWinner();
     } 
     // Create else when move is NOT valid for a human
   }
@@ -73,6 +71,22 @@ class App extends React.Component {
     // Update result
     // If state has been updated 9x
       // Update result as cat's game (tie)
+    const winningCombos = [
+      [0, 1, 2], //horizontals
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6], // verticals
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8], // diagonals
+      [2, 4, 6]
+    ];
+    const board = this.state.board;
+    for (let i = 0; i < winningCombos.length; i++) {
+      console.log(winningCombos[i][0]);
+      
+    }
+    
   }
 
   // Create reset game button to clear board and reset state?
