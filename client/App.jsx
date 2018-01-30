@@ -23,10 +23,9 @@ class App extends React.Component {
         isHuman: false
       }, () => {
         console.log(this.state);
+        this.giveComputerTurn();
+        // Call checkForWinner
       });
-
-      this.giveComputerTurn();
-      // Call checkForWinner
     } 
     // Create else when move is NOT valid for a human
     
@@ -62,15 +61,18 @@ class App extends React.Component {
   giveComputerTurn() {
     const compInput = this.selectNum();
     console.log('computer Input is ', compInput);
-    // if(isValidMove(compInput))
-      // Call addToBoard(compInput)
-      // Return
-    // else
-      // Call giveComputerTurn again
+    if(this.isValidMove(compInput)) {
+      this.addToBoard(compInput);
+      return;
+    } else {
+      this.giveComputerTurn();
+    }
   }
 
   selectNum() {
-    return Math.floor(Math.random() * 10);
+    const max = 9;
+    const min = 1;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   checkForWinner() {
