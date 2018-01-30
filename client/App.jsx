@@ -10,6 +10,11 @@ class App extends React.Component {
     // TODO: Handle invalid input
     userInput = parseInt(userInput);
     console.log(userInput);
+
+    // Call checkIfValidMove(userInput)
+    // Call addToBoard(userInput)
+    // Call giveComputerTurn
+    // Call checkForWinner
   }
 
   render() {
