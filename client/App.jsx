@@ -6,8 +6,10 @@ class App extends React.Component {
     };
   }
 
-  handleInput(thing) {
-    console.log(thing);
+  handleInput(userInput) {
+    // TODO: Handle invalid input
+    userInput = parseInt(userInput);
+    console.log(userInput);
   }
 
   render() {
